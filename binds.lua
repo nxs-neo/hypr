@@ -1,11 +1,13 @@
-local ipc = "qs -c noctalia-shell ipc call"
+local ipc = "qs -c noctalia-shell ipc call "
+-- local ipc = "noctalia"
 
 hl.bind("SUPER + R", hl.dsp.exec_cmd(Terminal))
 hl.bind("SUPER + B", hl.dsp.exec_cmd(Browser))
+hl.bind("SUPER + E", hl.dsp.exec_cmd(FileManager))
 hl.bind("SUPER + Q", hl.dsp.window.close())
 
 hl.bind("SUPER + SUPER_L", hl.dsp.exec_cmd(ipc .. "launcher toggle"))
-hl.bind("SUPER + V", hl.dsp.exec_cmd(ipc .. "clipper toggle"))
+hl.bind("SUPER + V", hl.dsp.exec_cmd(ipc .. "plugin:clipper toggle"))
 hl.bind("SUPER + N", hl.dsp.exec_cmd(ipc .. "notifications toggleHistory"))
 hl.bind("SUPER + TAB", hl.dsp.exec_cmd(ipc .. "plugin:workspace-overview toggle"))
 hl.bind("SUPER + COMMA", hl.dsp.exec_cmd(ipc .. "settings toggle"))
