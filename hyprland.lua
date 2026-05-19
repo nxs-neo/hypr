@@ -77,3 +77,4 @@ hl.env("XCURSOR_SIZE", 28)
 -- imports
 require("binds")
 require("noctalia.noctalia-colors")
+require("windowrules")
