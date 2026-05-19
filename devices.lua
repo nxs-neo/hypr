@@ -5,7 +5,6 @@ hl.config({
 		-- force_no_accel = true,
 		follow_mouse = 1,
 		focus_on_close = 1,
-		scroll_method = [["2fg"]],
 
 		sensitivity = 0, -- -1.0 - 1.0, 0 means no modification,
 
@@ -34,7 +33,6 @@ hl.device({
 	tap_to_click = true,
 	accel_profile = "adaptive",
 	drag_lock = true,
-	natural_scroll = true,
 })
 hl.device({
 	name = "logitech-g102-lightsync-gaming-mouse-keyboard-1",
