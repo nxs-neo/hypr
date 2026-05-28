@@ -22,6 +22,7 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("dbus-update-activation-environment --systemd --all")
 	hl.exec_cmd("systemctl --user enable --now gcr-ssh-agent.socket")
 	hl.exec_cmd("qs -c noctalia-shell")
+	hl.exec_cmd("valent --gapplication-service")
 	-- hl.exec_cmd('hyprctl plugin load "$HYPR_PLUGIN_DIR/lib/libhyprexpo.so"')
 end)
 
