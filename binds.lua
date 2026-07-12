@@ -12,6 +12,11 @@ hl.bind("SUPER + N", hl.dsp.exec_cmd(ipc .. "notifications toggleHistory"))
 hl.bind("SUPER + TAB", hl.dsp.exec_cmd(ipc .. "plugin:workspace-overview toggle"))
 hl.bind("SUPER + COMMA", hl.dsp.exec_cmd(ipc .. "settings toggle"))
 hl.bind("SUPER + ALT + L", hl.dsp.exec_cmd(ipc .. "lockScreen lock"))
+hl.bind("Print", hl.dsp.exec_cmd(ipc .. "plugin:screen-shot-and-record screenshot"))
+
+-- Resize and Move windows with Mouse
+hl.bind("SUPER + mouse:272", hl.dsp.window.drag(), { mouse = true }) -- ALT + LMB: Move a window
+hl.bind("SUPER + mouse:273", hl.dsp.window.resize(), { mouse = true }) -- ALT + RMB: Resize a window
 
 -- Function Keys
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd(ipc .. "volume increase"))
@@ -24,6 +29,19 @@ hl.bind("XF86AudioPrev", hl.dsp.exec_cmd(ipc .. "media prev"))
 hl.bind("XF86AudioNext", hl.dsp.exec_cmd(ipc .. "media next"))
 hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd(ipc .. "brightness increase"))
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd(ipc .. "brightness decrease"))
+
+-- Laptop Lid
+hl.bind("switch:on:Lid Switch", hl.dsp.exec_cmd(ipc .. "lockScreen lock"))
+
+-- Touchpad Gestures
+hl.gesture({ fingers = 3, direction = "horizontal", action = "workspace" })
+hl.gesture({
+	fingers = 3,
+	direction = "up",
+	action = function()
+		hl.exec_cmd(ipc .. "plugin:workspace-overview toggle")
+	end,
+})
 
 --Switch Workspace
 for i = 1, 9, 1 do

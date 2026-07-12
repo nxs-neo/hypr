@@ -1,6 +1,7 @@
 -- Variables
 Terminal = "ghostty"
-FileManager = "ghostty -e yazi"
+-- FileManager = "ghostty -e yazi"
+FileManager = "nautilus"
 Browser = "flatpak run app.zen_browser.zen"
 
 -- monitor
@@ -20,7 +21,8 @@ hl.monitor({
 -- Autostart
 hl.on("hyprland.start", function()
 	hl.exec_cmd("dbus-update-activation-environment --systemd --all")
-	hl.exec_cmd("systemctl --user enable --now gcr-ssh-agent.socket")
+	hl.exec_cmd("systemctl --user start gcr-ssh-agent.socket")
+	hl.exec_cmd("gnome-keyring-daemon --start --components=pkcs11,secrets")
 	hl.exec_cmd("qs -c noctalia-shell")
 	hl.exec_cmd("valent --gapplication-service")
 	-- hl.exec_cmd('hyprctl plugin load "$HYPR_PLUGIN_DIR/lib/libhyprexpo.so"')
@@ -50,7 +52,7 @@ hl.config({
 			enabled = true,
 			size = 3,
 			passes = 2,
-			vibrancy = 0.1696,
+			vibrancy = 0.5,
 		},
 	},
 	misc = {
@@ -80,3 +82,6 @@ require("binds")
 require("noctalia.noctalia-colors")
 require("windowrules")
 require("devices")
+
+-- For Noctalia Color templates
+require("noctalia")
