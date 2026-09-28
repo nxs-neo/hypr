@@ -4,27 +4,15 @@ Terminal = "ghostty"
 FileManager = "nautilus"
 Browser = "flatpak run app.zen_browser.zen"
 
--- monitor
-hl.monitor({
-	output = "",
-	mode = "prefered",
-	position = "auto",
-	scale = "auto",
-})
-
-hl.monitor({
-	output = "eDP-1",
-	mode = "prefered",
-	position = "auto",
-	scale = "1.25",
-})
 -- Autostart
 hl.on("hyprland.start", function()
 	hl.exec_cmd("dbus-update-activation-environment --systemd --all")
 	hl.exec_cmd("systemctl --user start gcr-ssh-agent.socket")
-	hl.exec_cmd("gnome-keyring-daemon --start --components=pkcs11,secrets")
+	hl.exec_cmd("systemctl --user start gcr-ssh-agent.service")
+	-- hl.exec_cmd("gnome-keyring-daemon --start --components=pkcs11,secrets")
 	hl.exec_cmd("qs -c noctalia-shell")
 	hl.exec_cmd("valent --gapplication-service")
+	hl.exec_cmd("emacs --daemon")
 	-- hl.exec_cmd('hyprctl plugin load "$HYPR_PLUGIN_DIR/lib/libhyprexpo.so"')
 end)
 
@@ -42,18 +30,15 @@ hl.config({
 		rounding = 12,
 		border_part_of_window = true,
 		rounding_power = 2.0,
-		shadow = {
-			enabled = true,
-			range = 4,
-			render_power = 3,
-			color = 0x1a1a1aee,
-		},
 		blur = {
 			enabled = true,
 			size = 3,
 			passes = 2,
 			vibrancy = 0.5,
 		},
+		-- motion_blur = {
+		-- 	enabled = true,
+		-- },
 	},
 	misc = {
 		disable_hyprland_logo = true,
@@ -82,6 +67,6 @@ require("binds")
 require("noctalia.noctalia-colors")
 require("windowrules")
 require("devices")
-
+require("animations")
 -- For Noctalia Color templates
 require("noctalia")

@@ -1,3 +1,18 @@
+-- monitor
+hl.monitor({
+	output = "",
+	mode = "prefered",
+	position = "auto",
+	scale = "auto",
+})
+
+hl.monitor({
+	output = "eDP-1",
+	mode = "prefered",
+	position = "auto",
+	scale = "1.2",
+})
+
 hl.config({
 	input = {
 		kb_layout = "us",
@@ -28,8 +43,15 @@ hl.config({
 })
 
 hl.device({
-	name = "synaptics-tm3276-022",
+	name = "elan-touchpad",
 	sensitivity = 0.15,
+	tap_to_click = true,
+	accel_profile = "adaptive",
+	drag_lock = true,
+})
+hl.device({
+	name = "elan-trackpoint",
+	sensitivity = 0.05,
 	tap_to_click = true,
 	accel_profile = "adaptive",
 	drag_lock = true,
