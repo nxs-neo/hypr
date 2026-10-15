@@ -51,12 +51,14 @@ for i = 1, 9, 1 do
 	hl.bind("SUPER + " .. i, hl.dsp.focus({ workspace = "" .. i }))
 end
 hl.bind("SUPER + 0", hl.dsp.focus({ workspace = "10" }))
+hl.bind("SUPER + S", hl.dsp.workspace.toggle_special())
 
 --Move Windows to Workspace
 for i = 1, 9, 1 do
 	hl.bind("SUPER + SHIFT + " .. i, hl.dsp.window.move({ workspace = "" .. i }))
 end
 hl.bind("SUPER + SHIFT + 0", hl.dsp.window.move({ workspace = "10" }))
+hl.bind("SUPER + SHIFT + S", hl.dsp.window.move({ workspace = "special" }))
 
 -- Move Focus
 hl.bind("SUPER + H", hl.dsp.focus({ direction = "l" }))

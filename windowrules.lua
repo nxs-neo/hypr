@@ -18,6 +18,15 @@ hl.layer_rule({
 })
 
 hl.window_rule({
+	name = "turntable",
+	match = {
+		title = "^(Turntable)$",
+		class = [[^dev\.geopjr\.Turntable$]],
+	},
+	workspace = "special silent",
+})
+
+hl.window_rule({
 	name = "xwayland-video-bridge-fixes",
 	match = {
 		class = "xwaylandvideobridge",

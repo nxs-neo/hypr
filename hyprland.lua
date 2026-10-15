@@ -14,6 +14,7 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("noctalia")
 	hl.exec_cmd("valent --gapplication-service")
 	hl.exec_cmd("emacs --daemon")
+	hl.exec_cmd("flatpak run --command=dev.geopjr.Turntable dev.geopjr.Turntable --headless")
 	-- hl.exec_cmd('hyprctl plugin load "$HYPR_PLUGIN_DIR/lib/libhyprexpo.so"')
 end)
 
