@@ -10,7 +10,8 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("systemctl --user start gcr-ssh-agent.socket")
 	hl.exec_cmd("systemctl --user start gcr-ssh-agent.service")
 	-- hl.exec_cmd("gnome-keyring-daemon --start --components=pkcs11,secrets")
-	hl.exec_cmd("qs -c noctalia-shell")
+	-- hl.exec_cmd("qs -c noctalia-shell")
+	hl.exec_cmd("noctalia")
 	hl.exec_cmd("valent --gapplication-service")
 	hl.exec_cmd("emacs --daemon")
 	-- hl.exec_cmd('hyprctl plugin load "$HYPR_PLUGIN_DIR/lib/libhyprexpo.so"')
@@ -27,18 +28,18 @@ hl.config({
 		float_gaps = 4,
 	},
 	decoration = {
-		rounding = 12,
-		border_part_of_window = true,
+		rounding = 20,
+		-- border_part_of_window = true,
 		rounding_power = 2.0,
 		blur = {
 			enabled = true,
 			size = 3,
 			passes = 2,
-			vibrancy = 0.5,
+			vibrancy = 0.1696,
 		},
-		-- motion_blur = {
-		-- 	enabled = true,
-		-- },
+		motion_blur = {
+			enabled = true,
+		},
 	},
 	misc = {
 		disable_hyprland_logo = true,

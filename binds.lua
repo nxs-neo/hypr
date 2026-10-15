@@ -1,5 +1,5 @@
-local ipc = "qs -c noctalia-shell ipc call "
--- local ipc = "noctalia"
+-- local ipc = "qs -c noctalia-shell ipc call "
+local ipc = "noctalia msg "
 
 hl.bind("SUPER + R", hl.dsp.exec_cmd(Terminal))
 hl.bind("SUPER + B", hl.dsp.exec_cmd(Browser))
@@ -7,33 +7,34 @@ hl.bind("SUPER + E", hl.dsp.exec_cmd(FileManager))
 hl.bind("SUPER + M", hl.dsp.exec_cmd("emacsclient -c -a 'emacs'"))
 hl.bind("SUPER + Q", hl.dsp.window.close())
 
-hl.bind("SUPER + SUPER_L", hl.dsp.exec_cmd(ipc .. "launcher toggle"))
-hl.bind("SUPER + V", hl.dsp.exec_cmd(ipc .. "plugin:clipper toggle"))
-hl.bind("SUPER + N", hl.dsp.exec_cmd(ipc .. "notifications toggleHistory"))
+hl.bind("SUPER + SUPER_L", hl.dsp.exec_cmd(ipc .. "panel-toggle launcher"))
+hl.bind("SUPER + V", hl.dsp.exec_cmd(ipc .. "panel-toggle clipboard"))
+hl.bind("SUPER + N", hl.dsp.exec_cmd(ipc .. "panel-toggle control-center notifications"))
 hl.bind("SUPER + TAB", hl.dsp.exec_cmd(ipc .. "plugin:workspace-overview toggle"))
-hl.bind("SUPER + COMMA", hl.dsp.exec_cmd(ipc .. "settings toggle"))
-hl.bind("SUPER + ALT + L", hl.dsp.exec_cmd(ipc .. "lockScreen lock"))
-hl.bind("SUPER + escape", hl.dsp.exec_cmd(ipc .. "sessionMenu toggle"))
-hl.bind("Print", hl.dsp.exec_cmd(ipc .. "plugin:screen-shot-and-record screenshot"))
+hl.bind("ALT + TAB", hl.dsp.exec_cmd(ipc .. "window-switcher"))
+hl.bind("SUPER + COMMA", hl.dsp.exec_cmd(ipc .. "panel-toggle control-center"))
+hl.bind("SUPER + ALT + L", hl.dsp.exec_cmd(ipc .. "session lock"))
+hl.bind("SUPER + escape", hl.dsp.exec_cmd(ipc .. "panel-toggle session"))
+hl.bind("Print", hl.dsp.exec_cmd(ipc .. "screenshot-region"))
 
 -- Resize and Move windows with Mouse
 hl.bind("SUPER + mouse:272", hl.dsp.window.drag(), { mouse = true }) -- ALT + LMB: Move a window
 hl.bind("SUPER + mouse:273", hl.dsp.window.resize(), { mouse = true }) -- ALT + RMB: Resize a window
 
 -- Function Keys
-hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd(ipc .. "volume increase"))
-hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd(ipc .. "volume decrease"))
-hl.bind("XF86AudioMute", hl.dsp.exec_cmd(ipc .. "volume muteOutput"))
-hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd(ipc .. "volume muteInput"))
+hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd(ipc .. "volume-up 10"))
+hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd(ipc .. "volume-down 10"))
+hl.bind("XF86AudioMute", hl.dsp.exec_cmd(ipc .. "volume-mute"))
+hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd(ipc .. "mic-mute"))
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd(ipc .. "media play"))
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd(ipc .. "media pause"))
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd(ipc .. "media prev"))
 hl.bind("XF86AudioNext", hl.dsp.exec_cmd(ipc .. "media next"))
-hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd(ipc .. "brightness increase"))
-hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd(ipc .. "brightness decrease"))
+hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd(ipc .. "brightness-up"))
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd(ipc .. "brightness-down"))
 
 -- Laptop Lid
-hl.bind("switch:on:Lid Switch", hl.dsp.exec_cmd(ipc .. "lockScreen lock"))
+hl.bind("switch:on:Lid Switch", hl.dsp.exec_cmd(ipc .. "session lock"))
 
 -- Touchpad Gestures
 hl.gesture({ fingers = 3, direction = "horizontal", action = "workspace" })
