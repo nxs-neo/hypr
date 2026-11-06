@@ -7,7 +7,7 @@ hl.bind("SUPER + E", hl.dsp.exec_cmd(FileManager))
 hl.bind("SUPER + M", hl.dsp.exec_cmd("emacsclient -c -a 'emacs'"))
 hl.bind("SUPER + Q", hl.dsp.window.close())
 
-hl.bind("SUPER + SUPER_L", hl.dsp.exec_cmd(ipc .. "panel-toggle launcher"))
+hl.bind("SUPER + SUPER_L", hl.dsp.exec_cmd(ipc .. "panel-toggle launcher"), { release = true })
 hl.bind("SUPER + V", hl.dsp.exec_cmd(ipc .. "panel-toggle clipboard"))
 hl.bind("SUPER + N", hl.dsp.exec_cmd(ipc .. "panel-toggle control-center notifications"))
 hl.bind("SUPER + TAB", hl.dsp.exec_cmd(ipc .. "plugin:workspace-overview toggle"))
